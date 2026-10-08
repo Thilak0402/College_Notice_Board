@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE = 'YOUR_DOCKERHUB_USERNAME/college-notice-board:latest'
-        CRED_ID = 'dockerhub-creds'
+        DOCKER_IMAGE = 'thilak0402/college-notice-board:latest'
+        CRED_ID = 'my-dockerhub-creds' // Make sure this matches your Jenkins Credential ID
     }
     stages {
         stage('Checkout Code') {
