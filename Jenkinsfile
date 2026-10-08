@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_IMAGE = 'thilak0402/college-notice-board:latest'
-        CRED_ID = 'my-dockerhub-creds' // Make sure this matches your Jenkins Credential ID
+        CRED_ID = 'my-dockerhub-creds'
     }
     stages {
         stage('Checkout Code') {
@@ -28,7 +28,8 @@ pipeline {
         }
         stage('Deploy to Kubernetes') {
             steps {
-                sh 'kubectl apply -f deployment.yaml'
+                // Changed 'sh' to 'bat' for Windows compatibility
+                bat 'kubectl apply -f deployment.yaml'
             }
         }
     }
